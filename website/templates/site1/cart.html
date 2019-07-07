@@ -1,0 +1,173 @@
+{%load staticfiles%}
+<!doctype html>
+<html lang="en">
+ <head>
+ <style>
+ul {
+    list-style-type: none;
+    margin: 40;
+    padding: 36;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li a, .dropbtn {
+    display: inline-block;
+    color: red;
+    text-align: center;
+    padding: 24px 76px;
+    text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+    background-color: 
+ #006666;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: purple;
+    padding: 12px 16px;
+    text-decoration: none;
+	background-color: #f9f9f9;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+div {
+align: center
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 1s;
+}
+
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    from {background-color: blue;}
+    to {background-color: green;}
+}
+
+/* Standard syntax */
+@keyframes example {
+    from {background-color: green;}
+    to {background-color: yellow;}
+}
+h2 {
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px green, 0 0 5px purple;
+	background-color: 
+ #006666;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 4s; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 1s;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, td, th {
+  border: 4px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 90%;
+}
+
+th {
+  height: 50px;
+}
+
+
+</style>
+ </head>
+ <body background="main2.jpg">
+ <ul>
+  <li><a href="http://127.0.0.1:8000/site1/home/">Home</a></li>
+  <li><a href="contact.html">Contact us</a></li>
+   <li><a href="policy.html">Policy</a></li>
+   <li><a href="">Admin</a></li>
+  <li class="dropdown">
+    <a href="javascript:void(0)" class="dropbtn">Products</a>
+    <div class="dropdown-content">
+      <a href="">Fridges</a>
+      <a href="">T.V</a>
+      <a href="">Mobiles</a>
+      <a href="">Laptops</a>
+      <a href="">Headphones</a>
+    </div>
+  </li>
+   <li><a href="http://127.0.0.1:8000/site1/logout">LogOut</a></li>
+</ul>
+
+<div>
+<h1 align="center">Welcome</h1>
+</div>
+
+<h2 style="color:#4d0000;" align="center">Continue Shopping with us</h2>
+<h2 style="color:#4d0000;" align="center">What Are You lookin for!</h2>
+<h2 style="color:#4d0000;" align="center">Welcome! mR. {{name}}</h2>
+
+ <img src="electro.jpg" alt="electro" style="width:12%;">
+<h2><center>Your Cart</center></h2>
+<p></p>
+<table>
+    <tr>
+        <th>Product</th>
+        <th>Model</th>
+        <th>Price</th>
+        <th>Image</th>
+        <th>Edit</th>
+      </tr>
+{% for c in cam %}
+  
+  <tr>
+    <td>{{c.product}}</td>
+    <td>{{c.model}}</td>
+    <td>{{c.price}}</td>
+    <td><img src="{{ c.product_img.url }}" alt="Cannon" width="175px" height="155px"></td>
+    <td><button><a href="http://127.0.0.1:8000/site1/del/{{c.id}}">Remove</a></button></td>
+    
+  </tr>
+ 
+  {% endfor %}
+</table>
+ <form method="POST" action="#">
+    {% csrf_token %}
+  <p><button><a href="http://127.0.0.1:8000/site1/home/">Buy Now</a></button></p>
+</form>
+</body>
+</html>
+ 
+  
+
+ 

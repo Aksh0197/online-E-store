@@ -1,0 +1,24 @@
+{%load staticfiles%}
+
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css"  href="{%static "css/mycss.css" %}" />
+    </head>
+<body class="body">
+    <h1>
+        hello
+    </h1>
+    <img src="{% static "images/cannon_eos.jpg" %}" width="25%" />
+    {{mydata}}
+
+    {% for i in mydata %}
+    <ul>
+            <li>  {{i.email}} </li> 
+                    <li>   {{i.pws}} </li> 
+                            <li>   {{i.contact}} </li> 
+</ul>
+    {% endfor %}
+<a href="http://127.0.0.1:8000/site1/login/">Click</a>
+</body>
+
+</html>

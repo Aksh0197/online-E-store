@@ -1,0 +1,24 @@
+{%load staticfiles%}
+<html>
+<head>
+<style>
+img {
+  max-width: 70%;
+  height: auto;
+}
+</style>
+</head>
+<body>
+        <img src="{{ cam.product_img.url }}" alt="Cannon" width="200" height="200">
+
+<h2>{{cam.product}}</h2>
+<p>{{cam.model}}</p><br>
+<p>{{cam.price}}</p><br>
+<p>{{cam.quantity}}</p><br>
+<form action="#" method="POST">
+  {%csrf_token%}
+<input type="hidden" name="id" value="{{cam.id}}" />
+<p><button>Add to Cart</button></p>
+</form>
+</body>
+</html>

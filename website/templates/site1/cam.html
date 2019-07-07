@@ -1,0 +1,57 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="shortcut icon" href="img/lifestyleStore.png" />
+        <title>Electropedia Store</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- latest compiled and minified CSS -->
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" type="text/css">
+        <!-- jquery library -->
+        <script type="text/javascript" src="bootstrap/js/jquery-3.2.1.min.js"></script>
+        <!-- Latest compiled and minified javascript -->
+        <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+        <!-- External CSS -->
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+    </head>
+    <body>
+        <div>
+            
+
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>Welcome to our Electropedia Store!</h1>
+                    <p>We have the best cameras, watches and Mobiles for you. No need to hunt around, we have all in one place.</p>
+                </div>
+            </div>
+            <div class="container">
+                <div class="row">
+                        {% for c in cam %} 
+                    <div class="col-md-3 col-sm-6">
+                        <div class="thumbnail">
+                            <a href="http://127.0.0.1:8000/site1/disp/{{c.id}}">
+                                <img src="{{ c.product_img.url }}" alt="Cannon" width="175px" height="155px">
+                            </a>
+                            <center>
+                                <div class="caption">
+                                    <h3>{{c.product}}</h3>
+                                    <p>Price: Rs. {{c.price}}</p>
+
+                                    
+
+
+
+                                </div>
+                            </center>
+                        </div>
+                    </div>
+                 
+                    {% endfor %} 
+                </div>
+                
+</div>
+<h2><a href="http://127.0.0.1:8000/site1/cart/">View Your Cart</a></h2>
+    </body>
+</html>
